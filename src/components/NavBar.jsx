@@ -6,6 +6,8 @@ import navIcon3 from "../assets/img/leetcode.svg";
 
 import logo from "../assets/img/logo.svg";
 
+import { BoxArrowUpRight } from "react-bootstrap-icons";
+
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
 
@@ -20,12 +22,19 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <img src={logo} alt="Joshi" className="w-20 hover:scale-105 transition-transform" />
         
-        {/* Changed hover colors to white and base to slate-400 for better contrast */}
         <div className="hidden md:flex items-center space-x-12 text-slate-300 font-medium tracking-wide">
           <a href="#home" className="hover:text-white transition-colors">Home</a>
           <a href="#skills" className="hover:text-white transition-colors">Skills</a>
           <a href="#projects" className="hover:text-white transition-colors">Projects</a>
-          <a href="https://docs.vpjoshi.in" className="hover:text-white transition-colors">Docs</a>
+          <a
+            href="https://docs.vpjoshi.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors flex items-center gap-2"
+          >
+            Docs
+            <BoxArrowUpRight size={14} />
+          </a>
         </div>
 
         <div className="flex items-center space-x-6">

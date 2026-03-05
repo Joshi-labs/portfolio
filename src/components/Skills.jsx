@@ -37,7 +37,7 @@ const Skills = () => {
           
           <div className="text-slate-300 text-sm md:text-lg lg:text-xl max-w-4xl mx-auto mb-12 md:mb-16 space-y-2">
             <p><span className="text-white font-bold tracking-wide">FrontEnd:</span> React.js, Bootstrap, Tailwind</p>
-            <p><span className="text-white font-bold tracking-wide">BackEnd:</span> Java, Python, Express, Node.js, C++</p>
+            <p><span className="text-white font-bold tracking-wide">BackEnd:</span> Go, Python, Express, Node.js, C++</p>
             <p><span className="text-white font-bold tracking-wide">Cloud Experience:</span> GCP, AWS, Self-Hosted Server</p>
             <p><span className="text-white font-bold tracking-wide">Database:</span> MongoDB, PostgreSQL, SQLite</p>
             <p><span className="text-white font-bold tracking-wide">Tools:</span> Linux, Docker, Git, GitHub Actions, Kubernetes</p>
@@ -46,6 +46,9 @@ const Skills = () => {
           <Carousel 
             responsive={responsive} 
             infinite={true} 
+            autoPlay={true}
+            autoPlaySpeed={3500}
+            pauseOnHover={true}
             className="skill-slider pb-8 cursor-grab active:cursor-grabbing custom-arrow-position"
           >
             

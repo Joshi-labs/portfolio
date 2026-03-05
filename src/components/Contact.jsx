@@ -26,7 +26,7 @@ const Contact = () => {
     setButtonText("Sending...");
     
     try {
-      let response = await fetch("http://api-to-home.vpjoshi.in/contact/portfolio", {
+      let response = await fetch("https://selfhosted-api.vpjoshi.in/portfolio/email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
@@ -36,11 +36,21 @@ const Contact = () => {
       
       let result = await response.json();
       setFormDetails(formInitialDetails);
-      
+
       if (result.code === 200) {
-        setStatus({ success: true, message: 'Message sent successfully' });
+        setStatus({ success: true, message: "Message sent successfully" });
+
+      } else if (result.code === 429) {
+        setStatus({
+          success: false,
+          message: "You have already sent a message. Please try again after 24 hours."
+        });
+
       } else {
-        setStatus({ success: false, message: 'Something went wrong, please try again later.' });
+        setStatus({
+          success: false,
+          message: "Something went wrong, please try again later."
+        });
       }
     } catch (error) {
        setStatus({ success: false, message: 'Network error.' });

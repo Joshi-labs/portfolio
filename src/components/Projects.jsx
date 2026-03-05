@@ -90,7 +90,7 @@ const Projects = () => {
                 className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" 
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 flex flex-col justify-end items-center text-center p-8">
                 <h4 className="text-2xl font-bold mb-2 text-white translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300">
                   {project.title}
                 </h4>
@@ -98,7 +98,7 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <div className="flex gap-3 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-100">
+                <div className="flex justify-center gap-3 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-100">
                   {project.visit && <a href={project.visit} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
                   {project.docs && <a href={project.docs} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
                   {project.github && <a href={project.github} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
@@ -130,7 +130,7 @@ const Projects = () => {
                 className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" 
               />
               
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 flex flex-col justify-end items-center text-center p-8">
                 <h4 className="text-2xl font-bold mb-2 text-white translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300">
                   {project.title}
                 </h4>
@@ -138,7 +138,7 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <div className="flex gap-3 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-100">
+                <div className="flex justify-center gap-3 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-100">
                   {project.visit && <a href={project.visit} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
                   {project.docs && <a href={project.docs} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
                   {project.github && <a href={project.github} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
