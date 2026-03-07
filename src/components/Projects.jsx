@@ -1,54 +1,118 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import projImg1 from "../assets/img/project-img1.jpg";
-import projImg2 from "../assets/img/project-img4.jpg"; 
+import projImg2 from "../assets/img/project-img4.jpg";
 import projImg3 from "../assets/img/project-img5.jpg";
+import projImgx from "../assets/img/project-imgx.jpg";
+
+import projImage_ott from "../assets/img/projects/ott.jpg";
+import projImage_selfhost from "../assets/img/projects/self-host.jpg";
+import projImage_doccollab from "../assets/img/projects/doc-collab.jpg";
+import projImage_s3 from "../assets/img/projects/s3.jpg";
+import projImage_containerorch from "../assets/img/projects/container-orch.jpg";
+import projImage_os from "../assets/img/projects/os.jpg";
+
+import projImage_grafana from "../assets/img/projects/grafana.jpg";
+import projImage_cicd from "../assets/img/projects/cicd.jpg";
+import projImage_aws from "../assets/img/projects/aws.jpg";
+import projImage_cf from "../assets/img/projects/cf.jpg";
+import projImage_saa from "../assets/img/projects/saa.jpg";
+
+import hackathonProject1 from "../assets/img/projects/hackathon-img1.jpg";
+import hackathonProject2 from "../assets/img/projects/hackathon-img2.jpg";
+
+const allProjects = [
+  { category: "Core", title: "Joshi OTT", description: "...", imgUrl: projImage_ott, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Self Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Container Orcestrator", description: "...", imgUrl: projImage_containerorch, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Doc Collab Tool", description: "...", imgUrl: projImage_doccollab, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "S3 Drive", description: "...", imgUrl: projImage_s3, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Custom OS", description: "...", imgUrl: projImage_os, visit: "#", docs: "#", github: "#" },
+
+  { category: "DevOps", title: "Self-Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Monitoring Tool / Stack", description: "...", imgUrl: projImage_grafana, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "CI/CD pipeline ", description: "...", imgUrl: projImage_cicd, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Multiple AWS Deployments", description: "...", imgUrl: projImage_aws, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Cloudflare Tunnels", description: "...", imgUrl: projImage_cf, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "AWS SAA Labs", description: "...", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
+
+  { category: "AIML", title: "DeepFake Detection System", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
+];
+
+const hackathonProjects = [
+  { title: "AI Ticketing System", description: "A low cost ticketing system that uses multilingual AI to generate tickets and manage them.", imgUrl: hackathonProject1, visit: "#", docs: "#", github: "#" },
+  { title: "Dark Web Surveillance Tool", description: "A tool that uses AI to detect and monitor dark web activities. It costs nothing to run.", imgUrl: hackathonProject2, visit: "#", docs: "#", github: "#" },
+];
+
+// Detects if the device is touch-only (no real hover support)
+const isTouchDevice = () => window.matchMedia("(hover: none)").matches;
+
+const ProjectCard = ({ project, className = "" }) => {
+  const [tapped, setTapped] = useState(false);
+  const cardRef = useRef(null);
+
+  // Close on tap outside (mobile only)
+  useEffect(() => {
+    if (!tapped) return;
+
+    const handleOutsideClick = (e) => {
+      if (cardRef.current && !cardRef.current.contains(e.target)) {
+        setTapped(false);
+      }
+    };
+
+    document.addEventListener("touchstart", handleOutsideClick);
+    return () => document.removeEventListener("touchstart", handleOutsideClick);
+  }, [tapped]);
+
+  const handleTap = (e) => {
+    if (!isTouchDevice()) return; // desktop: let CSS hover handle it
+    e.preventDefault();
+    setTapped((prev) => !prev);
+  };
+
+  const overlayVisible = tapped ? "opacity-100" : "opacity-0 group-hover:opacity-100";
+
+  return (
+    <div
+      ref={cardRef}
+      onTouchStart={handleTap}
+      className={`relative rounded-[2rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all outline-none ${className}`}
+    >
+      <img
+        src={project.imgUrl}
+        alt={project.title}
+        className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+
+      <div className={`absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent transition-all duration-300 flex flex-col justify-end items-center text-center p-8 ${overlayVisible}`}>
+        <h4 className={`text-2xl font-bold mb-2 text-white transition-transform duration-300 ${tapped ? "translate-y-0" : "translate-y-4 group-hover:translate-y-0"}`}>
+          {project.title}
+        </h4>
+        <p className={`text-slate-300 text-sm italic mb-6 transition-transform duration-300 delay-75 ${tapped ? "translate-y-0" : "translate-y-4 group-hover:translate-y-0"}`}>
+          {project.description}
+        </p>
+        <div className={`flex justify-center gap-3 transition-transform duration-300 delay-100 ${tapped ? "translate-y-0" : "translate-y-4 group-hover:translate-y-0"}`}>
+          {project.visit && <a href={project.visit} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
+          {project.docs && <a href={project.docs} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
+          {project.github && <a href={project.github} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState(0);
   const tabs = ["Core", "DevOps", "AIML"];
-
-  const allProjects = [
-    { category: "Core", title: "Joshi OTT", description: "Microservices streaming platform with FFmpeg processing.", imgUrl: projImg1, visit: "#", docs: "#", github: "#" },
-    { category: "Core", title: "SyncDocs", description: "Real-time collaborative editor using event-driven architecture.", imgUrl: projImg2, visit: "#", docs: "#", github: "#" },
-    { category: "Core", title: "Custom Compiler", description: "A custom programming language and compiler built from scratch.", imgUrl: projImg3, visit: "#", docs: "#", github: "#" },
-    { category: "Core", title: "Vite Portfolio", description: "Modern React portfolio migrated from legacy CRA.", imgUrl: projImg1, visit: "#", docs: "#", github: "#" },
-    { category: "Core", title: "Chess Engine", description: "Multiplayer chess platform with custom move validation.", imgUrl: projImg2, visit: "#", docs: "#", github: "#" },
-    { category: "Core", title: "UpCheck SaaS", description: "Web monitoring and uptime tracking software as a service.", imgUrl: projImg3, visit: "#", docs: "#", github: "#" },
-
-    { category: "DevOps", title: "Self-Hosted Server", description: "Personal Ubuntu home server with Docker & NAS storage.", imgUrl: projImg2, visit: "#", docs: "#", github: "#" },
-    { category: "DevOps", title: "Container Orchestrator", description: "Lightweight custom system for scaling Docker services.", imgUrl: projImg3, visit: "#", docs: "#", github: "#" },
-    { category: "DevOps", title: "K3s Homelab", description: "Multi-node Kubernetes cluster running on local hardware.", imgUrl: projImg1, visit: "#", docs: "#", github: "#" },
-    { category: "DevOps", title: "S3 Storage Engine", description: "Custom object storage solution mimicking AWS S3 architecture.", imgUrl: projImg2, visit: "#", docs: "#", github: "#" },
-    { category: "DevOps", title: "Cloudflare Tunnels", description: "Securely exposing local services to the web without port forwarding.", imgUrl: projImg3, visit: "#", docs: "#", github: "#" },
-    { category: "DevOps", title: "AWS SAA Labs", description: "Various highly-available VPC and EC2 architectures.", imgUrl: projImg1, visit: "#", docs: "#", github: "#" },
-
-    { category: "AIML", title: "Unetify", description: "Autonomous AI agent communication layer.", imgUrl: projImg1, visit: "#", docs: "#", github: "#" },
-    { category: "AIML", title: "Vision Classifier", description: "Deep learning model for real-time image recognition.", imgUrl: projImg2, visit: "#", docs: "#", github: "#" },
-    { category: "AIML", title: "NLP Chatbot", description: "Context-aware conversational agent using transformer models.", imgUrl: projImg3, visit: "#", docs: "#", github: "#" }
-  ];
-
-  const hackathonProjects = [
-    { 
-      title: "AI Ticketing System", 
-      description: "A low cost ticketing system that uses multilingual AI to generate tickets and manage them.", 
-      imgUrl: projImg1, 
-      visit: "#", docs: "#", github: "#" 
-    },
-    { 
-      title: "Dark Web Surveillance Tool", 
-      description: "A tool that uses AI to detect and monitor dark web activities. It costs nothing to run.", 
-      imgUrl: projImg2, 
-      visit: "#", docs: "#", github: "#" 
-    },    
-  ];
-
-  const filteredProjects = allProjects.filter(project => project.category === tabs[activeTab]);
+  const filteredProjects = allProjects.filter(p => p.category === tabs[activeTab]);
 
   return (
     <section id="projects" className="py-24 bg-black relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        
+
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Projects</h2>
           <p className="text-slate-400 max-w-3xl mx-auto text-lg leading-relaxed">
@@ -61,15 +125,12 @@ const Projects = () => {
             <div
               className="absolute top-0 bottom-0 left-0 w-1/3 bg-slate-100 rounded-full transition-transform duration-300 ease-out shadow-sm"
               style={{ transform: `translateX(${activeTab * 100}%)` }}
-            ></div>
-
+            />
             {tabs.map((tab, index) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(index)}
-                className={`relative z-10 flex-1 py-2 md:py-2.5 text-xs md:text-sm font-bold tracking-wide transition-colors duration-300 ${
-                  activeTab === index ? "text-zinc-900" : "text-zinc-500 hover:text-zinc-300"
-                }`}
+                className={`relative z-10 flex-1 py-2 md:py-2.5 text-xs md:text-sm font-bold tracking-wide transition-colors duration-300 ${activeTab === index ? "text-zinc-900" : "text-zinc-500 hover:text-zinc-300"}`}
               >
                 {tab}
               </button>
@@ -79,36 +140,11 @@ const Projects = () => {
 
         <div key={activeTab} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
           {filteredProjects.map((project, index) => (
-            <div 
-              key={index} 
-              tabIndex="0" 
-              className="relative rounded-[2rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 focus:border-white/20 transition-all outline-none"
-            >
-              <img 
-                src={project.imgUrl} 
-                alt={project.title} 
-                className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" 
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 flex flex-col justify-end items-center text-center p-8">
-                <h4 className="text-2xl font-bold mb-2 text-white translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300">
-                  {project.title}
-                </h4>
-                <p className="text-slate-300 text-sm italic mb-6 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-75">
-                  {project.description}
-                </p>
-
-                <div className="flex justify-center gap-3 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-100">
-                  {project.visit && <a href={project.visit} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
-                  {project.docs && <a href={project.docs} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
-                  {project.github && <a href={project.github} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
-                </div>
-              </div>
-            </div>
+            <ProjectCard key={index} project={project} />
           ))}
         </div>
 
-        <div className="h-px my-10 "></div>
+        <div className="h-px my-10" />
 
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">Hackathon Team Projects</h2>
@@ -119,32 +155,11 @@ const Projects = () => {
 
         <div className="flex flex-wrap justify-center gap-8">
           {hackathonProjects.map((project, index) => (
-            <div 
-              key={index} 
-              tabIndex="0" 
-              className="relative w-full sm:w-[calc(50%-1rem)] lg:max-w-[380px] rounded-[2rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 focus:border-white/20 transition-all outline-none"
-            >
-              <img 
-                src={project.imgUrl} 
-                alt={project.title} 
-                className="w-full aspect-[4/3] object-cover transition-transform duration-500 group-hover:scale-105 group-focus:scale-105" 
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/90 to-transparent opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-all duration-300 flex flex-col justify-end items-center text-center p-8">
-                <h4 className="text-2xl font-bold mb-2 text-white translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300">
-                  {project.title}
-                </h4>
-                <p className="text-slate-300 text-sm italic mb-6 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-75">
-                  {project.description}
-                </p>
-
-                <div className="flex justify-center gap-3 translate-y-4 group-hover:translate-y-0 group-focus:translate-y-0 transition-transform duration-300 delay-100">
-                  {project.visit && <a href={project.visit} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
-                  {project.docs && <a href={project.docs} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
-                  {project.github && <a href={project.github} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
-                </div>
-              </div>
-            </div>
+            <ProjectCard
+              key={index}
+              project={project}
+              className="w-full sm:w-[calc(50%-1rem)] lg:max-w-[380px]"
+            />
           ))}
         </div>
 
