@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 
-import projImg1 from "../assets/img/project-img1.jpg";
-import projImg2 from "../assets/img/project-img4.jpg";
-import projImg3 from "../assets/img/project-img5.jpg";
 import projImgx from "../assets/img/project-imgx.jpg";
 
 import projImage_ott from "../assets/img/projects/ott.jpg";
@@ -20,30 +17,33 @@ import projImage_saa from "../assets/img/projects/saa.jpg";
 
 import hackathonProject1 from "../assets/img/projects/hackathon-img1.jpg";
 import hackathonProject2 from "../assets/img/projects/hackathon-img2.jpg";
+import hackathonProject3 from "../assets/img/projects/hackathon-img3.jpg";
 
 const allProjects = [
-  { category: "Core", title: "Joshi OTT", description: "...", imgUrl: projImage_ott, visit: "#", docs: "#", github: "#" },
-  { category: "Core", title: "Self Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Joshi OTT", description: "...", imgUrl: projImage_ott, visit: "https://ott.vpjoshi.in", docs: "#", github: "#" },
+  { category: "Core", title: "Self Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "#", github: "#" },
   { category: "Core", title: "Container Orcestrator", description: "...", imgUrl: projImage_containerorch, visit: "#", docs: "#", github: "#" },
-  { category: "Core", title: "Doc Collab Tool", description: "...", imgUrl: projImage_doccollab, visit: "#", docs: "#", github: "#" },
-  { category: "Core", title: "S3 Drive", description: "...", imgUrl: projImage_s3, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Doc Collab Tool", description: "...", imgUrl: projImage_doccollab, visit: "https://sync-docs.vpjoshi.in", docs: "#", github: "#" },
+  { category: "Core", title: "S3 Drive", description: "...", imgUrl: projImage_s3, visit: "https://s3-drive.vpjoshi.in", docs: "#", github: "#" },
   { category: "Core", title: "Custom OS", description: "...", imgUrl: projImage_os, visit: "#", docs: "#", github: "#" },
 
-  { category: "DevOps", title: "Self-Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "#", docs: "#", github: "#" },
-  { category: "DevOps", title: "Monitoring Tool / Stack", description: "...", imgUrl: projImage_grafana, visit: "#", docs: "#", github: "#" },
-  { category: "DevOps", title: "CI/CD pipeline ", description: "...", imgUrl: projImage_cicd, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Self-Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "#", github: "#" },
+  { category: "DevOps", title: "Monitoring Tool / Stack", description: "...", imgUrl: projImage_grafana, visit: "https://grafana.vpjoshi.in", docs: "#", github: "#" },
+  { category: "DevOps", title: "CI/CD pipeline ", description: "...", imgUrl: projImage_cicd, visit: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml", docs: "#", github: "#" },
   { category: "DevOps", title: "Multiple AWS Deployments", description: "...", imgUrl: projImage_aws, visit: "#", docs: "#", github: "#" },
   { category: "DevOps", title: "Cloudflare Tunnels", description: "...", imgUrl: projImage_cf, visit: "#", docs: "#", github: "#" },
   { category: "DevOps", title: "AWS SAA Labs", description: "...", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
 
-  { category: "AIML", title: "DeepFake Detection System", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
   { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
   { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
 ];
 
 const hackathonProjects = [
-  { title: "AI Ticketing System", description: "A low cost ticketing system that uses multilingual AI to generate tickets and manage them.", imgUrl: hackathonProject1, visit: "#", docs: "#", github: "#" },
-  { title: "Dark Web Surveillance Tool", description: "A tool that uses AI to detect and monitor dark web activities. It costs nothing to run.", imgUrl: hackathonProject2, visit: "#", docs: "#", github: "#" },
+  { title: "AI Ticketing System", description: "A low cost ticketing system that uses multilingual AI to generate tickets and manage them.", imgUrl: hackathonProject1, docs: "https://docs.vpjoshi.in/#/hackathon1", github: "#", video: "https://www.youtube.com/watch?v=2zsQ9blK_zA" },
+  { title: "Dark Web Surveillance Tool", description: "A tool that uses AI to detect and monitor dark web activities. It costs nothing to run.", imgUrl: hackathonProject2, docs: "https://docs.vpjoshi.in/#/hackathon2", github: "#", video: "https://www.youtube.com/watch?v=NUIAEJaAVQI" },
+  { title: "Legal AI Assistant", description: "Fine-tuned chatbot for Dept. of Justice · Built at SIH 2024", imgUrl: hackathonProject3, docs: "https://docs.vpjoshi.in/#/hackathon3", github: "#", video: "https://www.youtube.com/watch?v=UXvvrmIAqxc" }
+
 ];
 
 // Detects if the device is touch-only (no real hover support)
@@ -95,9 +95,10 @@ const ProjectCard = ({ project, className = "" }) => {
           {project.description}
         </p>
         <div className={`flex justify-center gap-3 transition-transform duration-300 delay-100 ${tapped ? "translate-y-0" : "translate-y-4 group-hover:translate-y-0"}`}>
-          {project.visit && <a href={project.visit} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
-          {project.docs && <a href={project.docs} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
-          {project.github && <a href={project.github} className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
+          {project.visit && project.visit !== "#" && <a href={project.visit} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
+          {project.docs && project.docs !== "#" && <a href={project.docs} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
+          {project.github && project.github !== "#" && <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
+          {project.video && project.video !== "#" && <a href={project.video} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Video</a>}
         </div>
       </div>
     </div>
