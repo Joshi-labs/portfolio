@@ -20,23 +20,23 @@ import hackathonProject2 from "../assets/img/projects/hackathon-img2.jpg";
 import hackathonProject3 from "../assets/img/projects/hackathon-img3.jpg";
 
 const allProjects = [
-  { category: "Core", title: "Joshi OTT", description: "...", imgUrl: projImage_ott, visit: "https://ott.vpjoshi.in", docs: "#", github: "#" },
-  { category: "Core", title: "Self Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "#", github: "#" },
-  { category: "Core", title: "Container Orcestrator", description: "...", imgUrl: projImage_containerorch, visit: "#", docs: "#", github: "#" },
-  { category: "Core", title: "Doc Collab Tool", description: "...", imgUrl: projImage_doccollab, visit: "https://sync-docs.vpjoshi.in", docs: "#", github: "#" },
-  { category: "Core", title: "S3 Drive", description: "...", imgUrl: projImage_s3, visit: "https://s3-drive.vpjoshi.in", docs: "#", github: "#" },
-  { category: "Core", title: "Custom OS", description: "...", imgUrl: projImage_os, visit: "#", docs: "#", github: "#" },
+  { category: "Core", title: "Joshi OTT", description: "A Netflix-style OTT platform with adaptive HLS streaming, serverless AWS Lambda auth, and DynamoDB - deployed live on EC2.", imgUrl: projImage_ott, visit: "https://ott.vpjoshi.in", docs: "https://docs.vpjoshi.in/#/ott", github: "https://github.com/Joshi-labs/joshiott_latest/tree/main" },
+  { category: "Core", title: "Self Hosted Server", description: "Self-hosted k3s homelab running LLaMA 3.2, n8n, Postgres, and Grafana — saving ₹10,000/month over AWS.", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "https://docs.vpjoshi.in/#/server", github: "https://github.com/Joshi-labs/stats" },
+  { category: "Core", title: "Container Orcestrator", description: "Lightweight container orchestrator built from scratch in Go — distribute Docker containers across a cluster without Kubernetes.", imgUrl: projImage_containerorch,  docs: "https://docs.vpjoshi.in/#/orbit", github: "https://github.com/Joshi-labs/orbit" },
+  { category: "Core", title: "Doc Collab Tool", description: "Real-time collaborative docs, built for scale on AWS.", imgUrl: projImage_doccollab, visit: "https://sync-docs.vpjoshi.in", docs: "https://docs.vpjoshi.in/#/sync-docs", github: "https://github.com/Joshi-labs/SyncDocs_Main_frontend" },
+  { category: "Core", title: "S3 Drive", description: "COMMING SOON", imgUrl: projImage_s3, visit: "https://s3-drive.vpjoshi.in", docs: "#", github: "#" },
+  { category: "Core", title: "Custom OS", description: "Custom Linux OS for electric vehicles, built on Arch with a React GUI.", imgUrl: projImage_os, docs: "https://docs.vpjoshi.in/#/os"},
 
-  { category: "DevOps", title: "Self-Hosted Server", description: "...", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "#", github: "#" },
-  { category: "DevOps", title: "Monitoring Tool / Stack", description: "...", imgUrl: projImage_grafana, visit: "https://grafana.vpjoshi.in", docs: "#", github: "#" },
-  { category: "DevOps", title: "CI/CD pipeline ", description: "...", imgUrl: projImage_cicd, visit: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml", docs: "#", github: "#" },
-  { category: "DevOps", title: "Multiple AWS Deployments", description: "...", imgUrl: projImage_aws, visit: "#", docs: "#", github: "#" },
-  { category: "DevOps", title: "Cloudflare Tunnels", description: "...", imgUrl: projImage_cf, visit: "#", docs: "#", github: "#" },
-  { category: "DevOps", title: "AWS SAA Labs", description: "...", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Self-Hosted Server", description: "Self-hosted k3s homelab running LLaMA 3.2, n8n, Postgres, and Grafana — saving ₹10,000/month over AWS.", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "https://docs.vpjoshi.in/#/server", github: "https://github.com/Joshi-labs/stats" },
+  { category: "DevOps", title: "Monitoring Tool / Stack", description: "COMMING SOON", imgUrl: projImage_grafana, visit: "https://grafana.vpjoshi.in", docs: "#", github: "#" },
+  { category: "DevOps", title: "CI/CD pipeline ", description: "COMMING SOON", imgUrl: projImage_cicd, visit: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml", docs: "#", github: "#" },
+  { category: "DevOps", title: "Multiple AWS Deployments", description: "COMMING SOON", imgUrl: projImage_aws, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Cloudflare Tunnels", description: "COMMING SOON", imgUrl: projImage_cf, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "AWS SAA Labs", description: "COMMING SOON", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
 
-  { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
-  { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
-  { category: "AIML", title: "...", description: "...", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
+  { category: "AIML", title: "COMMING SOON", description: "COMMING SOON", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "COMMING SOON", description: "COMMING SOON", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "COMMING SOON", description: "COMMING SOON", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
 ];
 
 const hackathonProjects = [
