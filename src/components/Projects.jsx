@@ -34,9 +34,9 @@ const allProjects = [
   { category: "DevOps", title: "Cloudflare Tunnels", description: "COMMING SOON", imgUrl: projImage_cf, visit: "#", docs: "#", github: "#" },
   { category: "DevOps", title: "AWS SAA Labs", description: "COMMING SOON", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
 
-  { category: "AIML", title: "COMMING SOON", description: "COMMING SOON", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
-  { category: "AIML", title: "COMMING SOON", description: "COMMING SOON", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
-  { category: "AIML", title: "COMMING SOON", description: "COMMING SOON", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
+  { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
+  { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
 ];
 
 const hackathonProjects = [
