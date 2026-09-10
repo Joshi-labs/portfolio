@@ -83,7 +83,7 @@ const Banner = () => {
           </p>
           
           <a
-            href="/Vishwash_Prasad_Joshi_v1.0.2.pdf"
+            href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >

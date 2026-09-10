@@ -28,11 +28,11 @@ const allProjects = [
   { category: "Core", title: "Custom OS", description: "Custom Linux OS for electric vehicles, built on Arch with a React GUI.", imgUrl: projImage_os, docs: "https://docs.vpjoshi.in/#/os"},
 
   { category: "DevOps", title: "Self-Hosted Server", description: "Self-hosted k3s homelab running LLaMA 3.2, n8n, Postgres, and Grafana — saving ₹10,000/month over AWS.", imgUrl: projImage_selfhost, visit: "https://stats.vpjoshi.in", docs: "https://docs.vpjoshi.in/#/server", github: "https://github.com/Joshi-labs/stats" },
-  { category: "DevOps", title: "Monitoring Tool / Stack", description: "COMMING SOON", imgUrl: projImage_grafana, visit: "https://grafana.vpjoshi.in", docs: "#", github: "#" },
-  { category: "DevOps", title: "CI/CD pipeline ", description: "COMMING SOON", imgUrl: projImage_cicd, visit: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml", docs: "#", github: "#" },
-  { category: "DevOps", title: "Multiple AWS Deployments", description: "COMMING SOON", imgUrl: projImage_aws, visit: "#", docs: "#", github: "#" },
-  { category: "DevOps", title: "Cloudflare Tunnels", description: "COMMING SOON", imgUrl: projImage_cf, visit: "#", docs: "#", github: "#" },
-  { category: "DevOps", title: "AWS SAA Labs", description: "COMMING SOON", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "Monitoring Tool / Stack", description: "Self-hosted Grafana + Prometheus observability stack : monitoring CPU, RAM, power draw, and network with a public dashboard.", imgUrl: projImage_grafana, visit: "https://grafana.vpjoshi.in", docs: "https://docs.vpjoshi.in/#/monitoring", github: "https://github.com/Joshi-labs/stats" },
+  { category: "DevOps", title: "CI/CD pipeline ", description: "GitHub Actions CI/CD pipeline deploying to a self-hosted k3s cluster — build, push to GHCR, and rolling deploy on [prod] commits.", imgUrl: projImage_cicd, visit: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml", docs: "https://docs.vpjoshi.in/#/cicd", github: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml" },
+  { category: "DevOps", title: "Multiple AWS Deployments", description: "Production AWS architectures across EKS, Lambda, MSK, SES, CloudFront, and EC2 — spanning multiple real projects.", imgUrl: projImage_aws, visit: "#", docs: "https://docs.vpjoshi.in/#/aws", github: "#" },
+  { category: "DevOps", title: "Cloudflare Tunnels", description: "Zero-trust homelab ingress — 12 services across 3 domains, no open ports, automatic TLS, 350ms latency.", imgUrl: projImage_cf, visit: "#", docs: "https://docs.vpjoshi.in/#/cloudflare", github: "#" },
+  { category: "DevOps", title: "AWS SAA Labs", description: "", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
 
   { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
   { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
