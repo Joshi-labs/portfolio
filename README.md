@@ -5,7 +5,7 @@
 **Personal Portfolio & Engineering Showcase of Vishwash Joshi**  
 *AI Engineer & Full-Stack / DevOps Developer*
 
-[![Live Site](https://img.shields.io/badge/Live-vpjoshi.in-00f0ff?style=for-the-badge&logo=googlechrome&logoColor=black)](https://vpjoshi.in)
+[![Live Site](https://img.shields.io/badge/Live-vpjoshi.in-61DAFB?style=for-the-badge&logo=googlechrome&logoColor=black)](https://vpjoshi.in)
 [![React](https://img.shields.io/badge/React-19.2.0-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7.3.1-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
