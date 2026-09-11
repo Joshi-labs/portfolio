@@ -100,9 +100,9 @@ const Contact = () => {
   const msgNearLimit = msgLen > LIMITS.message * 0.85;
 
   return (
-    <section id="connect" className="py-14 bg-[#121212] relative z-10">
+    <section id="connect" className="py-24 bg-[#050505] relative z-10">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center bg-[#151515] rounded-[3rem] p-8 md:p-16 border border-white/5">
+        <div className="grid md:grid-cols-2 gap-16 items-center bg-[#090909] rounded-[0.5rem] p-8 md:p-16 border border-white/5">
 
           {/* Left Side */}
           <div className="flex justify-center relative">
@@ -112,7 +112,7 @@ const Contact = () => {
 
           {/* Right Side */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">Get In Touch</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 text-center">Get In Touch</h2>
 
             <form onSubmit={handleSubmit} noValidate className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

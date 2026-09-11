@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="py-16 bg-cover bg-center relative border-t border-white/5" style={{ backgroundImage: `url(${footerBg})` }}>
 
-      <div className="absolute inset-0 bg-[#121212]/90"></div> 
+      <div className="absolute inset-0 bg-[#070707]/90"></div> 
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -18,16 +18,16 @@ const Footer = () => {
           <div className="text-center md:text-left space-y-3 text-slate-400">
             <p><span className="text-white font-bold tracking-wider">Ph.</span> - 6266411668</p>
             <p><span className="text-white font-bold tracking-wider">Email</span> - vishwashmax@gmail.com</p>
-            <p><span className="text-white font-bold tracking-wider">LinkedIn</span> - VishwashJoshi</p>
+            <p><span className="text-white font-bold tracking-wider">Instagram</span> - @banana_joshi</p>
           </div>
 
           <div className="flex flex-col items-center md:items-end space-y-6 md:pt-4">
             
             <div className="flex space-x-4">
-              <a href="#" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 hover:bg-white transition-all group shadow-lg">
+              <a href="https://www.linkedin.com/in/vishwash-joshi/" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 hover:bg-white transition-all group shadow-lg">
                 <img src={navIcon1} alt="LinkedIn" className="w-4 group-hover:brightness-0 transition-all" />
               </a>
-              <a href="#" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 hover:bg-white transition-all group shadow-lg">
+              <a href="https://github.com/Joshi-labs" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 hover:bg-white transition-all group shadow-lg">
                 <img src={navIcon2} alt="GitHub" className="w-4 group-hover:brightness-0 transition-all" />
               </a>
               <a href="https://leetcode.com/u/vpjoshi/" className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center border border-white/10 hover:bg-white transition-all group shadow-lg">

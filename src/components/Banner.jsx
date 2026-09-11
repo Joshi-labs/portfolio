@@ -1,108 +1,149 @@
-import { useState, useEffect, useRef } from "react";
-import { ArrowRightCircle } from "react-bootstrap-icons";
+import { ArrowRight } from "react-bootstrap-icons";
 
-import headerImg from "../assets/img/main-new.png";
-import bannerBg from "../assets/img/banner-bg-new.jpg";
+import awsLogo from "../assets/img/certs/aws-certified-solutions-architect-associate.png";
+import devopsLogo from "../assets/img/certs/devops.png";
+import pythonLogo from "../assets/img/certs/python.png";
 
 const Banner = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState('');
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  
-  const toRotate = [ "Vishwash Joshi" ]; 
-  const period = 2000;
-  const bannerRef = useRef(null);
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsInView(entry.isIntersecting);
-      },
-      { threshold: 0.4 }
-    );
-
-    if (bannerRef.current) {
-      observer.observe(bannerRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!isInView) return;
-
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => clearInterval(ticker);
-  }, [text, isInView]);
-
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
-    }
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setDelta(500);
-    }
-  }
-
   return (
-    <section ref={bannerRef} id="home" className="relative pt-48 pb-32 bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url(${bannerBg})` }}>
-      
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center relative z-10">
-        <div className={`md:col-span-7 transition-all duration-1000 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          
-          <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Hi! I'm <span className="border-r-4 border-white pr-2 animate-pulse">{text}</span><br/>
-          </h1>
-          
-          <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-2xl">
-            Semester 6 B.Tech student specializing in CSE and AIML. I build robust web applications, 
-            design autonomous agent communication layers like Unetify, and manage self-hosted homelab infrastructure.
-          </p>
-          
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="text-slate-300 font-bold text-lg flex items-center group hover:text-white transition-colors">
-              See Resume
-              <span className="ml-3 transition-transform duration-300 group-hover:translate-x-2 text-white">
-                <ArrowRightCircle size={30} />
-              </span>
-            </button>
-          </a>
-        </div>
 
-        <div className={`md:col-span-5 flex justify-center relative transition-all duration-1000 delay-300 transform ${isVisible ? "opacity-100" : "opacity-0"}`}>
-          <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full"></div>
-          <img src={headerImg} alt="Header Img" className="w-full relative z-10 animate-float" />
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden bg-[#050505]"
+    >
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 opacity-100"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: "36px 36px",
+        }}
+      />
+
+      {/* Glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40" />
+
+      <div className="relative z-10 max-w-6xl mx-auto px-6 w-full mt-35">
+        <div>
+
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight">
+            Hi, I'm{" "}
+            <span className="bg-gradient-to-r from-cyan-300  to-indigo-400 bg-clip-text text-transparent">
+              Vishwash Joshi
+            </span>
+            <br />
+            AI Engineer & Developer
+          </h1>
+
+          <p className="mt-8 text-xl text-zinc-400 max-w-3xl">
+            Building AI agents, scalable web applications and self-hosted
+            infrastructure. Focused on LLMs, RAG systems, automation and
+            distributed architectures.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-6 py-3 rounded border border-white/15 bg-white/5 hover:bg-white/10 transition-all"
+            >
+              Resume
+              <ArrowRight />
+            </a>
+          </div>
+
+          {/* Certifications */}
+          <div className="mt-24">
+            <p className="text-sm uppercase tracking-[0.2em] text-zinc-500 mb-6">
+              Certifications
+            </p>
+
+            <div className="flex flex-wrap gap-8">
+
+              {/* AWS */}
+              <a
+                href="https://www.credly.com/badges/5a4db644-385d-4e03-9669-4023102e2136/public_url"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 w-fit"
+              >
+                <img
+                  src={awsLogo}
+                  alt="AWS SAA"
+                  className="w-20 h-20 object-contain"
+                />
+
+                <div>
+                  <h3 className="font-semibold text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                    AWS Solutions Architect Associate
+                  </h3>
+
+                  <p className="text-sm text-zinc-500">
+                    Amazon Web Services
+                  </p>
+                </div>
+              </a>
+
+              {/* DevOps */}
+              <a
+                href="https://www.linkedin.com/learning/paths/devops-professional-certificate-by-pagerduty-and-linkedin"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 w-fit"
+              >
+                <img
+                  src={devopsLogo}
+                  alt="AWS SAA"
+                  className="w-20 h-20 object-contain"
+                />
+
+                <div>
+                  <h3 className="font-semibold text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                    DevOps Professional Certificate
+                  </h3>
+
+                  <p className="text-sm text-zinc-500">
+                    PagerDuty x LinkedIn Learning
+                  </p>
+                </div>
+              </a>
+
+              {/* Python */}
+              <a
+                href="https://www.credly.com/badges/d3956fb6-f64c-4c37-907b-9d5c32851d7c"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-4 w-fit"
+              >
+                <img
+                  src={pythonLogo}
+                  alt="Cisco : Python 1 & 2"
+                  className="w-20 h-20 object-contain"
+                />
+
+                <div>
+                  <h3 className="font-semibold text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                    Cisco : Python Essentials 1 & 2
+                  </h3>
+
+                  <p className="text-sm text-zinc-500">
+                    Cisco NetAcad
+                  </p>
+                </div>
+              </a>
+
+
+            </div>
+          </div>
+
+        <div className="pb-20" />
+
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#121212] to-transparent z-0 pointer-events-none"></div>
     </section>
   );
 };

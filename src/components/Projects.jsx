@@ -9,6 +9,8 @@ import projImage_s3 from "../assets/img/projects/s3.jpg";
 import projImage_containerorch from "../assets/img/projects/container-orch.jpg";
 import projImage_os from "../assets/img/projects/os.jpg";
 
+import projImage_aisoc from "../assets/img/projects/ai-soc.jpg";
+
 import projImage_grafana from "../assets/img/projects/grafana.jpg";
 import projImage_cicd from "../assets/img/projects/cicd.jpg";
 import projImage_aws from "../assets/img/projects/aws.jpg";
@@ -32,11 +34,11 @@ const allProjects = [
   { category: "DevOps", title: "CI/CD pipeline ", description: "GitHub Actions CI/CD pipeline deploying to a self-hosted k3s cluster — build, push to GHCR, and rolling deploy on [prod] commits.", imgUrl: projImage_cicd, visit: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml", docs: "https://docs.vpjoshi.in/#/cicd", github: "https://github.com/Joshi-labs/stats/blob/master/.github/workflows/deploy.yml" },
   { category: "DevOps", title: "Multiple AWS Deployments", description: "Production AWS architectures across EKS, Lambda, MSK, SES, CloudFront, and EC2 — spanning multiple real projects.", imgUrl: projImage_aws, visit: "#", docs: "https://docs.vpjoshi.in/#/aws", github: "#" },
   { category: "DevOps", title: "Cloudflare Tunnels", description: "Zero-trust homelab ingress — 12 services across 3 domains, no open ports, automatic TLS, 350ms latency.", imgUrl: projImage_cf, visit: "#", docs: "https://docs.vpjoshi.in/#/cloudflare", github: "#" },
-  { category: "DevOps", title: "AWS SAA Labs", description: "", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
+  { category: "DevOps", title: "AWS SAA", description: "", imgUrl: projImage_saa, visit: "#", docs: "#", github: "#" },
 
-  { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
-  { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" },
-  { category: "AIML", title: "COMMING SOON", description: "", imgUrl: projImgx, visit: "#", docs: "#", github: "#" }
+  { category: "AIML", title: "Dark Web Surveillance Tool", description: "A tool that uses AI to detect and monitor dark web activities. It costs nothing to run.", imgUrl: hackathonProject2, docs: "https://docs.vpjoshi.in/#/hackathon2", github: "#", video: "https://www.youtube.com/watch?v=NUIAEJaAVQI" },
+  { category: "AIML", title: "AI-Powered SOC Investigation System - RAG", description: "", imgUrl: projImage_aisoc, visit: "https://threat-lens.vpjoshi.in/", docs: "https://docs.vpjoshi.in/#/vpc_threat_lens", github: "https://github.com/Joshi-labs/VPCThreatLens" },
+  { category: "AIML", title: "AI Ticketing System", description: "A low cost ticketing system that uses multilingual AI to generate tickets and manage them.", imgUrl: hackathonProject1, docs: "https://docs.vpjoshi.in/#/hackathon1", github: "#", video: "https://www.youtube.com/watch?v=2zsQ9blK_zA" },
 ];
 
 const hackathonProjects = [
@@ -79,7 +81,7 @@ const ProjectCard = ({ project, className = "" }) => {
     <div
       ref={cardRef}
       onTouchStart={handleTap}
-      className={`relative rounded-[2rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all outline-none ${className}`}
+      className={`relative rounded-[.6rem] overflow-hidden group cursor-pointer border border-white/5 hover:border-white/20 transition-all outline-none ${className}`}
     >
       <img
         src={project.imgUrl}
@@ -95,10 +97,10 @@ const ProjectCard = ({ project, className = "" }) => {
           {project.description}
         </p>
         <div className={`flex justify-center gap-3 transition-transform duration-300 delay-100 ${tapped ? "translate-y-0" : "translate-y-4 group-hover:translate-y-0"}`}>
-          {project.visit && project.visit !== "#" && <a href={project.visit} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Visit</a>}
-          {project.docs && project.docs !== "#" && <a href={project.docs} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Docs</a>}
-          {project.github && project.github !== "#" && <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">GitHub</a>}
-          {project.video && project.video !== "#" && <a href={project.video} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-full hover:bg-white/10 transition-all">Video</a>}
+          {project.visit && project.visit !== "#" && <a href={project.visit} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-[0.2rem] hover:bg-white/10 transition-all">Visit</a>}
+          {project.docs && project.docs !== "#" && <a href={project.docs} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-[0.2rem] hover:bg-white/10 transition-all">Docs</a>}
+          {project.github && project.github !== "#" && <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-[0.2rem] hover:bg-white/10 transition-all">GitHub</a>}
+          {project.video && project.video !== "#" && <a href={project.video} target="_blank" rel="noopener noreferrer" className="text-xs font-bold px-4 py-2 bg-transparent text-white border border-white rounded-[0.2rem] hover:bg-white/10 transition-all">Video</a>}
         </div>
       </div>
     </div>

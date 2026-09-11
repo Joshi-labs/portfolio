@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#121212] text-white selection:bg-cyan-500/30 overflow-x-hidden font-['Centra']">
+    <div className="min-h-screen bg-[#080808] text-white selection:bg-cyan-500/30 overflow-x-hidden font-['Centra']">
       <NavBar />
       <Banner />
       <Skills />
